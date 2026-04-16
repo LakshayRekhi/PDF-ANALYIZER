@@ -618,7 +618,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-api_key = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY="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"
+api_key = GROQ_API_KEY
 if not api_key:
     st.error("🚨 GROQ_API_KEY is missing from your .env file.")
     st.stop()
