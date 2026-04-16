@@ -15,7 +15,6 @@ from financial_ocr import FinancialPDFExtractor, ChartReadyNormalizer
 # ─────────────────────────────────────────────
 # BOOTSTRAP
 # ─────────────────────────────────────────────
-GROQ_API_KEY="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"
 load_dotenv()
 st.set_page_config(page_title="Financial Analyst", layout="wide", page_icon="📊")
 
@@ -166,7 +165,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-api_key = GROQ_API_KEY
+api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
     st.error("🚨 GROQ_API_KEY is missing from your .env file.")
     st.stop()
