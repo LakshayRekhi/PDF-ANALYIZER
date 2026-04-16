@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 import fitz  # PyMuPDF
 
 load_dotenv()
-GROQ_API_KEY="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"
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
