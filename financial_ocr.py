@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 import fitz  # PyMuPDF
 
 load_dotenv()
-GROQ_API_KEY="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"
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
@@ -50,7 +49,7 @@ class FinancialPDFExtractor:
     FINANCIAL_KEYWORDS = ["assets", "liabilities", "revenue", "expenses", "statement", "balance"]
 
     def __init__(self, model: str = "llama-3.3-70b-versatile"):
-        api_key = GROQ_API_KEY
+        api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
             raise ValueError("GROQ_API_KEY is missing from environment.")
         self.client = Groq(api_key=api_key)
@@ -89,6 +88,7 @@ CRITICAL INSTRUCTIONS:
 
 6. CURRENCY: Use the currency stated in the document header. If not visible on this page,
    default to AUD for Australian government/council documents.
+
 
 OUTPUT FORMAT – strict JSON, NO markdown fences:
 {{
