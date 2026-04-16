@@ -49,7 +49,7 @@ class FinancialPDFExtractor:
     FINANCIAL_KEYWORDS = ["assets", "liabilities", "revenue", "expenses", "statement", "balance"]
 
     def __init__(self, model: str = "llama-3.3-70b-versatile"):
-        api_key = GROQ_API_KEY
+        api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
             raise ValueError("GROQ_API_KEY is missing from environment.")
         self.client = Groq(api_key=api_key)
